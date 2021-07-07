@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express');
 const Gmailpush = require('gmailpush');
+const { processEmails } = require('./processEmails');
 
 const app = express();
 
@@ -45,7 +46,7 @@ app.post(
         token
       })
       .then((messages) => {
-        console.log(messages);
+        processEmails(messages)
       })
       .catch((err) => {
         console.log(err);

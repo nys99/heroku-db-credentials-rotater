@@ -1,8 +1,10 @@
+require('dotenv').config()
+
 /**
  * TODO(developer): Uncomment these variables before running the sample.
  */
-const topicName = 'projects/gmailpushtest-319004/topics/test-topic';
-const subscriptionName = 'projects/gmailpushtest-319004/subscriptions/test-topic-sub';
+const topicName = process.env.PUBSUB_TOPIC;
+const subscriptionName = process.env.PUBSUB_SUBSCRIPTION;
 
 // Imports the Google Cloud client library
 const {PubSub} = require('@google-cloud/pubsub');
@@ -14,7 +16,7 @@ async function modifyPushConfig() {
   const options = {
     // Set to an HTTPS endpoint of your choice. If necessary, register
     // (authorize) the domain on which the server is hosted.
-    pushEndpoint: `https://ab10fbd5e248.ngrok.io/push`,
+    pushEndpoint: process.env.SERVER_DOMAIN,
   };
 
   await pubSubClient
