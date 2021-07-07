@@ -2,8 +2,6 @@
 
 ## TODO
 - redeploy netlify site
-- only listen to emails when recieved 
-> - currently also listens when an email is opened
 
 ## the problem
 The heroku free tier provides postgres databases, but randomaly rotates the database credentials. This means you have to manually watch for the email from heroku and then update the credentials after.
