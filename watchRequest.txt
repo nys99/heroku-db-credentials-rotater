@@ -1,0 +1,22 @@
+# this is the watch request 
+
+POST /gmail/v1/users/me/watch?access_token={YOUR_ACCESS_TOKEN}
+Host: content.googleapis.com
+Content-Type: application/json
+
+{
+  "labelIds": [
+    "INBOX", 
+    "UNREAD"
+  ],
+  "topicName": "projects/gmailpushtest-319004/topics/test-topic"
+}
+
+
+# this request is used to stop the watch
+
+POST /gmail/v1/users/me/stop?access_token={YOUR_ACCESS_TOKEN}
+Host: content.googleapis.com
+
+
+

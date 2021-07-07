@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const execSync = require('child_process').execSync;
 
 
@@ -7,7 +9,8 @@ function processEmails(emails) {
     console.log(email)
     console.log(email.subject)
     if (email.subject.toLowerCase().includes('maintenance is required for your database') &&
-        email.bodyText.toLowerCase().includes('has completed successfully')) {
+        email.bodyText.toLowerCase().includes('has completed successfully') &&
+        email.historyType === 'messageAdded') {
       
       console.log('match found, begining update')
       updateEnvVars();
@@ -19,7 +22,7 @@ async function updateEnvVars() {
   let envVars = execSync('netlify env:list', { encoding: 'utf-8' }); 
   console.log('Current Netlify Env Vars', envVars);
 
-  let dburlOutput = execSync('heroku config --app startup-equity', { encoding: 'utf-8' }); 
+  let dburlOutput = execSync(`heroku config --app ${process.env.NETLIFY_APP_NAME}`, { encoding: 'utf-8' }); 
   let dburl = dburlOutput.slice(dburlOutput.indexOf('postgres://') + 'postgres://'.length);
   console.log('Heroku Postgres DB URL', dburl);
 
