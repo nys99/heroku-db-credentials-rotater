@@ -1,0 +1,18 @@
+{
+  "name": "gmailpushtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/pubsub": "^2.15.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "gmailpush": "^1.0.5"
+  }
+}

@@ -1,0 +1,7 @@
+gmailpushtest-319004-6ad2777185fe.json
+gmailpush_history.json
+node_modules/
+.env
+
+# Local Netlify folder
+.netlify
