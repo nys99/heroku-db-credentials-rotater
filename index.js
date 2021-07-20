@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const Gmailpush = require('gmailpush');
 const { processEmails } = require('./processEmails');
+const { modifyPushConfig } = require('./pushurl');
 
 const app = express();
 
@@ -12,6 +13,9 @@ const gmailpush = new Gmailpush({
   clientSecret: process.env.CLIENT_SECRET,
   pubsubTopic: process.env.PUBSUB_TOPIC
 });
+
+// tell google where our server endpoint is
+modifyPushConfig().catch(console.error);
 
 const users = [
   {

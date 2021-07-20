@@ -1,8 +1,5 @@
 require('dotenv').config()
 
-/**
- * TODO(developer): Uncomment these variables before running the sample.
- */
 const topicName = process.env.PUBSUB_TOPIC;
 const subscriptionName = process.env.PUBSUB_SUBSCRIPTION;
 
@@ -12,6 +9,7 @@ const {PubSub} = require('@google-cloud/pubsub');
 // Creates a client; cache this for further use
 const pubSubClient = new PubSub();
 
+// makes an api call to google to tell them where our server endpoint is
 async function modifyPushConfig() {
   const options = {
     // Set to an HTTPS endpoint of your choice. If necessary, register
@@ -26,4 +24,6 @@ async function modifyPushConfig() {
   console.log(`Modified push config for subscription ${subscriptionName}.`);
 }
 
-modifyPushConfig().catch(console.error);
+module.exports = {
+  modifyPushConfig
+}
