@@ -12,6 +12,8 @@ This project uses Gmail Pub/Sub the Heroku CLI and Netlify CLI to automate this 
 ### Helpful Links
 - netlify CLI env var command
 > - https://github.com/netlify/cli/blob/main/docs/commands/env.md
+> - check this out if you are having trouble install the CLI on Ubuntu
+> - https://answers.netlify.com/t/cant-install-netlify-cli-on-ubuntu-20-04/32811
 - Heroku CLI get credentials command 
 > - https://help.heroku.com/SMVK5PMS/why-have-my-heroku-postgres-credentials-changed
 - medium article to setup Gmail Pub/Sub
